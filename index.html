@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunitas Muhibbin Nurul Musthofa</title>
+    <link rel="icon" href="mnm icon.png">
+
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(180deg, #308986 0%, #0F1F1F 50%, #1C5252 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Sticky Navbar with scroll effect */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: linear-gradient(0deg, #1C5252 0%, #0F1D1D 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px #16efff70;
+        }
+        
+        /* Card Hover Effects */
+        .hover-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.3);
+        }
+        
+        /* Button Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform 0.5s, opacity 1s;
+        }
+        
+        .ripple:active::after {
+            transform: scale(0, 0);
+            opacity: 0.3;
+            transition: 0s;
+        }
+        
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(86, 142, 146, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(2, 216, 198, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(0, 247, 255, 0.8); }
+        }
+        
+        /* Fade In Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Smooth Transitions */
+        a, button {
+            transition: all 0.3s ease;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #12807a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00c4ba;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00fff2;
+        }
+        
+        /* Parallax Effect */
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="navbar fixed top-0 w-full z-50 py-4 px-6 md:px-12">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wider">
+                <img src="muhibbin 01.png" alt="Logo" class="rounded-full mx-auto border-4 border-cyan-300">
+            </div>
+            <ul class="hidden md:flex space-x-8 text-sm font-medium">
+                <li><a href="#home" class="hover:text-cyan-300">Home</a></li>
+                <li><a href="#profile" class="hover:text-cyan-300">Profile</a></li>
+                <li><a href="#info" class="hover:text-cyan-300">Info</a></li>
+                <li><a href="#about" class="hover:text-cyan-300">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in tracking-wider">
+                AHLAN WA SAHLAN WA <br/>
+                <span class="text-cyan-300">MARHABAN</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 fade-in fade-in-delay-1 text-cyan-100">
+                Selamat datang di website resmi komunitas muhibbin nurul musthofa
+            </p>
+            
+            <!-- Feature Card -->
+            <div class="max-w-4xl mx-auto fade-in fade-in-delay-2">
+                <div class="glass hover-card rounded-3xl p-8 md:p-12 glow">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="floating">
+                            <img src="RON 1T 1.png" alt="Logo" class="rounded-xl mx-auto border-2 border-cyan-300">
+                        </div>
+                        <div class="text-left">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                                <span class="text-cyan-300">SETIA BERSAMA</span>
+                            </h2>
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-4">
+                                PUTRA MAHKOTA
+                            </h3>
+                            <p class="text-cyan-100 leading-relaxed">
+                                Bersama Menjadi wadah silaturahmi jamaah se-jabodetabek dalam solidaritas dan kekeluargaan yang asik serta epik.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="min-h-screen flex items-center justify-center py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                <span class="text-cyan-300">Profile</span> Komunitas
+            </h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="glass hover-card rounded-3xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="h-full">
+                            <img src="pstr 1.png" alt="Community" class="w-full h-md object-cover rounded-xl mx-auto border-2 border-cyan-300">
+                        </div>
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold mb-6 text-cyan-300">
+                                Tentang Kami
+                            </h3>
+                            
+                            <p class="text-cyan-100 leading-relaxed mb-4">
+                                Komunitas Muhibbin Nurul Musthofa adalah komunitas digital dan real-life yang didedikasikan buat kalian yang mau recharge spiritual dan upgrade intelektual. Kita percaya, mencari ilmu dan mencintai kebaikan itu harus fun dan relevan sama zaman sekarang.
+                            </p>
+                            <p class="text-cyan-100 leading-relaxed">
+                                Di bawah didikan Majelis Nurul Musthofa dan dalam bimbingan Ustadz Muhyiddin serta dalam pengawasan para penasehat, komunitas ini diposisikan dalam  khidmat dengan ilmu dan guru serta silaturahmi antar jamaah, terutama anak muda yang mengikuti majelis Nurul musthofa
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="min-h-screen flex items-center justify-center py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                <span class="text-cyan-300">Informasi</span> Pendukung
+            </h2>
+            
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass hover-card rounded-3xl overflow-hidden ripple cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center">
+                        <img src="Jadwal Rutin.png" alt="Aqidatul Awwam" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-300">Jadwal Rutin Majelis</h3>
+                        <p class="text-cyan-100 text-sm leading-relaxed">
+                            ter-update dan terpercaya. Akun official resmi Majelis Nurul Musthofa khusus untuk penyebaran pamflet jadwal.
+                        </p>
+                        <button class="mt-4 px-4 py-2 bg-cyan-500 rounded-full text-sm font-semibold hover:bg-cyan-300 w-full"><a href="https://www.instagram.com/jadwalnurulmusthofa?igsh=aGY1N21kajcxMzB2">
+                            Lihat Jadwal</a>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="glass hover-card rounded-3xl overflow-hidden ripple cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-teal-600 to-emerald-700 flex items-center justify-center">
+                        <img src="Struktur Pengurus.png" alt="Kajian Rutin" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-300">Struktur Pengurus Komunitas</h3>
+                        <p class="text-cyan-100 text-sm leading-relaxed">
+                            Struktur atau jajaran kepengurusan komunitas Muhibbin Nurul Musthofa, yang telah resmi bertugas dan bertanggung jawab.
+                        </p>
+                        <button class="mt-4 px-4 py-2 bg-cyan-500 rounded-full text-sm font-semibold hover:bg-cyan-300 w-full"><a href="STRUKTUR KEPENGURUSAN BARU MUHIBBIN.png">
+                            Lihat Struktur</a>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="glass hover-card rounded-3xl overflow-hidden ripple cursor-pointer">
+                    <div class="h-64 bg-gradient-to-br from-emerald-700 to-teal-600 flex items-center justify-center">
+                        <img src="media.png" alt="Kegiatan Sosial" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-300">Media Kegiatan Komunitas</h3>
+                        <p class="text-cyan-100 text-sm leading-relaxed">
+                            Keseluruhan informasi sosial Komunitas Muhibbin Nurul Musthofa, Jadwal Ziarah akbar dan dokumentasi acara.
+                        </p>
+                        <button class="mt-4 px-4 py-2 bg-cyan-500 rounded-full text-sm font-semibold hover:bg-cyan-300 w-full"><a href="https://www.instagram.com/media_muhibbinnm?igsh=d3dqNGRwMzlkamdx">
+                            Lihat Media</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / CTA Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                Bergabung <span class="text-cyan-300">Bersama Kami</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Mobile App Button -->
+                <a href="#" class="glass hover-card rounded-3xl p-6 flex items-center justify-between ripple block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="smartphone" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold cyan-300">Download Mobile App</h3>
+                            <p class="text-cyan-100 text-sm">Comingsoon</p>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-8 h-8 text-cyan-200 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+                
+                <!-- WhatsApp Group Button -->
+                <a href="https://chat.whatsapp.com/DiYKaqAOdh2HJgogNSf7ok?mode=hqrt3" class="glass hover-card rounded-3xl p-6 flex items-center justify-between ripple block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="message-circle" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-emerald-400">Join WhatsApp Group</h3>
+                            <p class="text-gray-300 text-sm">Diskusi dan berbagi informasi bersama</p>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-8 h-8 text-cyan-200 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+                
+                <!-- Instagram Button -->
+                <a href="https://www.instagram.com/muhibbin_nurulmusthofa?igsh=MWZ3emVkdW81ZmYzZw==" class="glass hover-card rounded-3xl p-6 flex items-center justify-between ripple block group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="instagram" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-purple-300">Follow Instagram</h3>
+                            <p class="text-gray-300 text-sm">Ikuti update kegiatan kami</p>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-8 h-8 text-cyan-200 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-cyan-400">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-cyan-300">Komunitas Muhibbin Nurul Musthofa</h3>
+                    <p class="text-cyan-100 text-sm leading-relaxed">
+                        Komunitas Muhibbin Nurul Mustafa - Ngaji Asik Hidup Epik
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-cyan-300">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-cyan-200">Home</a></li>
+                        <li><a href="#profile" class="hover:text-cyan-200">Profile</a></li>
+                        <li><a href="#info" class="hover:text-cyan-200">Info</a></li>
+                        <li><a href="#about" class="hover:text-cyan-200">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-cyan-300">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            muhibbinnurulmusthofa135@gmail.com
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Jabodetabek - Indonesia
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-cyan-200">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2026 Komunitas Muhibbin Nurul Musthofa. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for Fade In Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Parallax Effect on Scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Add ripple effect on touch/click
+        document.querySelectorAll('.ripple').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple-effect');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Mobile Menu Toggle (if needed)
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            });
+        }
+        
+        // Add floating animation delay
+        document.querySelectorAll('.floating').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
